@@ -1,10 +1,9 @@
-using System;
 using System.Web;
 
-public class XssExample
+public class Example
 {
-    public void Output(HttpResponse response, string userInput)
+    public void Render(HttpResponse response, string userInput)
     {
-        response.Write(userInput); // Уязвимость: прямой вывод пользовательских данных
+        response.Write(userInput); // ← XSS уязвимость
     }
 }
