@@ -4,6 +4,9 @@ public class Example
 {
     public void Render(HttpResponse response, string userInput)
     {
-        response.Write(userInput); // ← XSS уязвимость
+        Response.Write(userInput);              // direct variable
+        Response.Write("Hi " + userInput);     // concatenation
+        Response.Write($"Hello {userInput}");  // interpolation
+        Html.Raw(userInput);    
     }
 }
