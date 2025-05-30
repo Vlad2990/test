@@ -1,15 +1,11 @@
 using System.Xml;
 
-public class XxeExample
+public class Example
 {
-    public void ParseXml(string xml)
+    public void LoadXml(string xml)
     {
-        var settings = new XmlReaderSettings
-        {
-            DtdProcessing = DtdProcessing.Prohibit
-        };
-        using var reader = XmlReader.Create(new System.IO.StringReader(xml), settings);
-        var xmlDoc = new XmlDocument();
-        xmlDoc.Load(reader); // Безопасная загрузка XML
+        XmlDocument doc = new XmlDocument();
+        doc.XmlResolver = new XmlUrlResolver(); // ← уязвимость
+        doc.LoadXml(xml);
     }
 }
