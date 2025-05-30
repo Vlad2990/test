@@ -5,7 +5,7 @@ public class Example
     public void LoadXml(string xml)
     {
         XmlDocument doc = new XmlDocument();
-        doc.XmlResolver = null; // ← безопасно
+        doc.XmlResolver = null; 
         doc.LoadXml(xml);
     }
 }
