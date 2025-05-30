@@ -1,11 +1,9 @@
-using System;
 using System.Web;
 
-public class XssExample
+public class Example
 {
-    public void Output(HttpResponse response, string userInput)
+    public void Render(HttpResponse response, string userInput)
     {
-        var encodedInput = HttpUtility.HtmlEncode(userInput);
-        response.Write(encodedInput); // Безопасный вывод: данные экранированы
+        response.Write(HttpUtility.HtmlEncode(userInput)); // ← безопасно
     }
 }
