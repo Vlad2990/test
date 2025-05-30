@@ -1,10 +1,11 @@
 using System.Xml;
 
-public class XxeExample
+public class Example
 {
-    public void ParseXml(string xml)
+    public void LoadXml(string xml)
     {
-        var xmlDoc = new XmlDocument(); // Уязвимость: небезопасный тип
-        xmlDoc.LoadXml(xml);
+        XmlDocument doc = new XmlDocument();
+        doc.XmlResolver = null; // ← безопасно
+        doc.LoadXml(xml);
     }
 }
